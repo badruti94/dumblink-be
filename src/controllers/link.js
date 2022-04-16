@@ -8,6 +8,7 @@ exports.addLink = async (req, res) => {
     try {
         await link.create({
             ...req.body,
+            userId: req.user.id,
             uniqid: uniqid.time(),
             photo: req.file.filename
         })
@@ -98,7 +99,7 @@ exports.getLinks = async (req, res) => {
     try {
         const links = await link.findAll({
             where: {
-                userId: req.query.userId
+                userId: req.user.id
             },
             attributes: {
                 exclude: ['createdAt', 'updatedAt']

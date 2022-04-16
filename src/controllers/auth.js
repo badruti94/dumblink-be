@@ -53,7 +53,6 @@ exports.login = async (req, res) => {
             status: 'success',
             data: {
                 user: {
-                    id: userExist.id,
                     name: userExist.name,
                     email: userExist.email,
                 },
@@ -105,7 +104,6 @@ exports.register = async (req, res) => {
             status: 'success',
             data: {
                 user: {
-                    id: userInserted.id,
                     name: userInserted.name,
                     email: userInserted.email,
                 },
