@@ -1,16 +1,34 @@
 const uniqid = require('uniqid')
+const cloudinary = require('cloudinary').v2
+const DatauriParser = require('datauri/parser')
+const path = require('path')
+
 const {
     link,
     user
 } = require('../../models')
 
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+})
+const parser = new DatauriParser()
+
 exports.addLink = async (req, res) => {
+    const file = parser.format(path.extname(req.file.originalname).toString(), req.file.buffer).content
+    const result = await cloudinary.uploader.upload(file, {
+        folder: 'uploads',
+        use_filename: true,
+        unique_filename: false
+    })
     try {
         await link.create({
             ...req.body,
             userId: req.user.id,
             uniqid: uniqid.time(),
-            photo: req.file.filename
+            photo: result.secure_url
         })
         res.send({
             message: 'Link created successfully'
@@ -25,7 +43,7 @@ exports.addLink = async (req, res) => {
 exports.updateLink = async (req, res) => {
     try {
         if (req.file) {
-            req.body.photo = req.file.filename
+            req.body.photo = result.secure_url
         }
         await link.update(req.body, {
             where: {

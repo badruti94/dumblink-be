@@ -1,21 +1,17 @@
 {
   "development": {
-    "username": "tcwglkgohayqai",
-    "password": "affc90fb09d17adc6c2a1b5e8ba30afa1536990a68060006329f28e5f3bfa5ab",
-    "database": "dkt5mjrfqvtn3",
-    "host": "ec2-34-197-84-74.compute-1.amazonaws.com",
-    "dialect": "postgres",
-    "protocol": "postgres",
-    "port": "5432"
+    "username": "root",
+    "password": null,
+    "database": "dumblink",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   },
   "test": {
-    "username": "tcwglkgohayqai",
-    "password": "affc90fb09d17adc6c2a1b5e8ba30afa1536990a68060006329f28e5f3bfa5ab",
-    "database": "dkt5mjrfqvtn3",
-    "host": "ec2-34-197-84-74.compute-1.amazonaws.com",
-    "dialect": "postgres",
-    "protocol": "postgres",
-    "port": "5432"
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   },
   "production": {
     "username": "tcwglkgohayqai",
