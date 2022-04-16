@@ -23,6 +23,12 @@
     "database": "dkt5mjrfqvtn3",
     "host": "ec2-34-197-84-74.compute-1.amazonaws.com",
     "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    },
     "protocol": "postgres",
     "port": "5432"
   }
