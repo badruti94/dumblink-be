@@ -31,9 +31,9 @@ const {
 router.post('/login', login)
 router.post('/register', register)
 
-router.get('/profile/:id', getProfile)
-router.put('/profile/:id', auth, updateProfile)
-router.delete('/profile/:id', auth, deleteProfile)
+router.get('/profile', auth, getProfile)
+router.put('/profile', auth, updateProfile)
+router.delete('/profile', auth, deleteProfile)
 
 router.post('/link', auth, uploadFile("photo"), addLink)
 router.get('/link/:id', getLink)

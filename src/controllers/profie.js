@@ -6,7 +6,7 @@ exports.getProfile = async (req, res) => {
     try {
         const profile = await user.findOne({
             where: {
-                id: req.params.id
+                id: req.user.id
             },
             attributes: ['email', 'name']
         })
@@ -23,11 +23,10 @@ exports.getProfile = async (req, res) => {
 }
 
 exports.updateProfile = async (req, res) => {
-    console.log('tes');
     try {
         await user.update(req.body, {
             where: {
-                id: req.params.id
+                id: req.user.id
             }
         })
 
@@ -45,7 +44,7 @@ exports.deleteProfile = async (req, res) => {
     try {
         await user.destroy({
             where: {
-                id: req.params.id
+                id: req.user.id
             }
         })
         res.send({
