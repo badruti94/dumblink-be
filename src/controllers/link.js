@@ -51,7 +51,7 @@ exports.updateLink = async (req, res) => {
             }
         })
         res.send({
-            message: 'Link created successfully'
+            message: 'Link updated successfully'
         })
     } catch (error) {
         res.status(500).send({
